@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www
+    ports:
+      - "8098:8000"
+    depends_on: 
+      - redis
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6370"
