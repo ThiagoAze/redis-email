@@ -6,7 +6,7 @@
 use Unialfa\OrderProcessor;
 use Unialfa\RedisQueue;
 
-require_once 'vendpr/autoload.php';
+require 'vendor/autoload.php';
 
 //instancia do redis
 $queue = new RedisQueue();

@@ -24,8 +24,19 @@ class RedisQueue {
         $this->redis->rpush($queueName, $item);
     }
 
-    // Remove um item na fila
-    public function dequeu(){
-        
+    // Pega o que está dentro da fila, ou seja, vê o tamanho da fila
+    public function getQueueLength($queueName){
+        return $this->redis->llen($queueName);
     }
+
+    // Retorna instancia realizada 
+    public function getRedisInstance(){
+        return $this->redis; 
+    }
+
+    // Entra na fila, pega o item e remove do item o que ele pegou 
+    public function dequeue($queueName){
+        return $this->redis->lpop($queueName);
+    }
+    
 }
